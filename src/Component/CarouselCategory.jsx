@@ -5,8 +5,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 const CarouselCategory = () => {
+    const navigate = useNavigate();
+    const searchCategory = (category) => {
+        navigate({
+          pathname: "search",
+          search: `${createSearchParams({
+            category: `${category}`,
+            searchTerm: ``,
+          })}`,
+        });
+      };  
+
+
+
   return (
     <div className='bg-white m-3'>
         <div className='text-2xl font-semibold p-3'>Shop by category</div>
@@ -16,7 +30,10 @@ const CarouselCategory = () => {
             navigation={true}
             modules={[Navigation]}
         >
-            <SwiperSlide>
+            <SwiperSlide
+                className='cursor-pointer'
+                onClick={()=>searchCategory("Deals")}    
+            >
                 <img src={'../images/category_0.jpg'} alt="0"/>
             </SwiperSlide>
             <SwiperSlide>
