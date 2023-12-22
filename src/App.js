@@ -14,7 +14,7 @@ const App = () => {
         </Routes>
     </BrowserRouter>
     // testing tailwind
-    
+    //....
   )
 }
 
